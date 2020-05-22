@@ -1,0 +1,32 @@
+{
+    "code": 200,
+    "message": "success",
+    "data": [
+        {
+            "id": 54,
+            "cid": "3300001",
+            "goodsName": "百利甜酒",
+            "price": 780.0,
+            "selfPrice": null,
+            "unit": "瓶",
+            "typeId": 36,
+            "typeName": "力乔酒",
+            "printId": 6,
+            "printName": "吧台出品",
+            "propertyIds": "",
+            "img": "order-goods/13b760ed6850484f804d6e24500efb01.jpg",
+            "description": null,
+            "stock": 9996,
+            "ableDiscount": 1,
+            "ableReturn": 1,
+            "isLowConsume": 1,
+            "storeDay": 100,
+            "storeMinCount": 1.0,
+            "isWholeStore": 2,
+            "delayDays": "20",
+            "maxDelayCount": 1,
+            "status": 1,
+            "propertyList": null
+        }
+    ]
+}

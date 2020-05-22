@@ -1,0 +1,49 @@
+{
+  "code": 200,
+  "message": "success",
+  "data": [
+    {
+      "id": 33,
+      "cid": "3300001",
+      "name": "五一优惠套餐",
+      "price": 99.0,
+      "img": "order-package/00d447e7eff743d9974db50a6eff5dd8.jpg",
+      "type": 2,
+      "description": null,
+      "ableDiscount": 0,
+      "ableReturn": 0,
+      "isLowConsume": 1,
+      "propertyIds": "",
+      "propertyList": null,
+      "detailsList": null
+    },
+    {
+      "id": 34,
+      "cid": "3300001",
+      "name": "哈啤一打",
+      "price": 60.0,
+      "img": "order-package/554d3c4f3e6b4b8ebb0af7da7fd61792.png",
+      "type": 2,
+      "description": null,
+      "ableDiscount": 0,
+      "ableReturn": 0,
+      "isLowConsume": 1,
+      "propertyIds": "14,15",
+      "propertyList": [
+        {
+          "id": 14,
+          "cid": "3300001",
+          "propertyName": "冰",
+          "parentId": 13
+        },
+        {
+          "id": 15,
+          "cid": "3300001",
+          "propertyName": "常温",
+          "parentId": 13
+        }
+      ],
+      "detailsList": null
+    }
+  ]
+}

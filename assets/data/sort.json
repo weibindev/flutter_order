@@ -1,0 +1,276 @@
+{
+    "code": 200,
+    "message": "success",
+    "data": [
+        {
+            "id": 10,
+            "cid": "3300001",
+            "typeCode": null,
+            "typeName": "啤酒",
+            "parentId": 4,
+            "isWine": null,
+            "status": 1
+        },
+        {
+            "id": 11,
+            "cid": "3300001",
+            "typeCode": null,
+            "typeName": "白酒",
+            "parentId": 4,
+            "isWine": null,
+            "status": 1
+        },
+        {
+            "id": 13,
+            "cid": "3300001",
+            "typeCode": null,
+            "typeName": "红酒",
+            "parentId": 4,
+            "isWine": null,
+            "status": 1
+        },
+        {
+            "id": 24,
+            "cid": "3300001",
+            "typeCode": "mifan",
+            "typeName": "米饭类",
+            "parentId": 23,
+            "isWine": null,
+            "status": 1
+        },
+        {
+            "id": 25,
+            "cid": "3300001",
+            "typeCode": "mian",
+            "typeName": "面食",
+            "parentId": 23,
+            "isWine": null,
+            "status": 1
+        },
+        {
+            "id": 26,
+            "cid": "3300001",
+            "typeCode": "other",
+            "typeName": "其他",
+            "parentId": 23,
+            "isWine": null,
+            "status": 1
+        },
+        {
+            "id": 28,
+            "cid": "3300001",
+            "typeCode": "hun",
+            "typeName": "荤菜",
+            "parentId": 27,
+            "isWine": null,
+            "status": 1
+        },
+        {
+            "id": 29,
+            "cid": "3300001",
+            "typeCode": "su",
+            "typeName": "素菜",
+            "parentId": 27,
+            "isWine": null,
+            "status": 1
+        },
+        {
+            "id": 30,
+            "cid": "3300001",
+            "typeCode": "haixian",
+            "typeName": "海鲜类",
+            "parentId": 27,
+            "isWine": null,
+            "status": 1
+        },
+        {
+            "id": 31,
+            "cid": "3300001",
+            "typeCode": "YJ",
+            "typeName": "洋酒",
+            "parentId": -1,
+            "isWine": 1,
+            "status": 1
+        },
+        {
+            "id": 32,
+            "cid": "3300001",
+            "typeCode": "HJ",
+            "typeName": "葡萄酒",
+            "parentId": -1,
+            "isWine": 1,
+            "status": 1
+        },
+        {
+            "id": 33,
+            "cid": "3300001",
+            "typeCode": "BLD",
+            "typeName": "白兰地",
+            "parentId": 31,
+            "isWine": 1,
+            "status": 1
+        },
+        {
+            "id": 34,
+            "cid": "3300001",
+            "typeCode": "WSJ",
+            "typeName": "威士忌",
+            "parentId": 31,
+            "isWine": 1,
+            "status": 1
+        },
+        {
+            "id": 35,
+            "cid": "3300001",
+            "typeCode": "FTJ",
+            "typeName": "伏特加",
+            "parentId": 31,
+            "isWine": 1,
+            "status": 1
+        },
+        {
+            "id": 36,
+            "cid": "3300001",
+            "typeCode": "QLJ",
+            "typeName": "力乔酒",
+            "parentId": 31,
+            "isWine": 1,
+            "status": 1
+        },
+        {
+            "id": 37,
+            "cid": "3300001",
+            "typeCode": "XB",
+            "typeName": "香槟",
+            "parentId": 31,
+            "isWine": 1,
+            "status": 1
+        },
+        {
+            "id": 38,
+            "cid": "3300001",
+            "typeCode": "JJ",
+            "typeName": "金酒",
+            "parentId": 31,
+            "isWine": 1,
+            "status": 1
+        },
+        {
+            "id": 39,
+            "cid": "3300001",
+            "typeCode": "PJ",
+            "typeName": "啤酒",
+            "parentId": -1,
+            "isWine": 1,
+            "status": 1
+        },
+        {
+            "id": 40,
+            "cid": "3300001",
+            "typeCode": "SGL",
+            "typeName": "水果类",
+            "parentId": -1,
+            "isWine": 0,
+            "status": 1
+        },
+        {
+            "id": 41,
+            "cid": "3300001",
+            "typeCode": "CF",
+            "typeName": "厨房",
+            "parentId": -1,
+            "isWine": 0,
+            "status": 1
+        },
+        {
+            "id": 42,
+            "cid": "3300001",
+            "typeCode": "YP",
+            "typeName": "饮品",
+            "parentId": -1,
+            "isWine": 0,
+            "status": 1
+        },
+        {
+            "id": 43,
+            "cid": "3300001",
+            "typeCode": "QT",
+            "typeName": "其他",
+            "parentId": -1,
+            "isWine": 0,
+            "status": 1
+        },
+        {
+            "id": 45,
+            "cid": "3300001",
+            "typeCode": "XCL",
+            "typeName": "小吃类",
+            "parentId": 41,
+            "isWine": 0,
+            "status": 1
+        },
+        {
+            "id": 46,
+            "cid": "3300001",
+            "typeCode": "LSL",
+            "typeName": "卤水类",
+            "parentId": 41,
+            "isWine": 0,
+            "status": 1
+        },
+        {
+            "id": 47,
+            "cid": "3300001",
+            "typeCode": "ZSL",
+            "typeName": "主食类",
+            "parentId": 41,
+            "isWine": 0,
+            "status": 1
+        },
+        {
+            "id": 48,
+            "cid": "3300001",
+            "typeCode": "SKL",
+            "typeName": "烧烤类",
+            "parentId": 41,
+            "isWine": 0,
+            "status": 1
+        },
+        {
+            "id": 49,
+            "cid": "3300001",
+            "typeCode": "XZL",
+            "typeName": "香炸类",
+            "parentId": 41,
+            "isWine": 0,
+            "status": 1
+        },
+        {
+            "id": 50,
+            "cid": "3300001",
+            "typeCode": "RY",
+            "typeName": "热饮",
+            "parentId": 42,
+            "isWine": 0,
+            "status": 1
+        },
+        {
+            "id": 51,
+            "cid": "3300001",
+            "typeCode": "RY",
+            "typeName": "软饮",
+            "parentId": 42,
+            "isWine": 0,
+            "status": 1
+        },
+        {
+            "id": 179,
+            "cid": "3300001",
+            "typeCode": "XLL",
+            "typeName": "香辣类",
+            "parentId": 41,
+            "isWine": 0,
+            "status": 1
+        }
+    ]
+}

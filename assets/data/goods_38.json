@@ -1,0 +1,32 @@
+{
+    "code": 200,
+    "message": "success",
+    "data": [
+        {
+            "id": 28,
+            "cid": "3300001",
+            "goodsName": "哥顿",
+            "price": 500.0,
+            "selfPrice": 0.0,
+            "unit": null,
+            "typeId": 38,
+            "typeName": "金酒",
+            "printId": 6,
+            "printName": "吧台出品",
+            "propertyIds": "",
+            "img": "order-goods/4e5366d1f3e24101850fc280f2257721.jpg",
+            "description": null,
+            "stock": 87,
+            "ableDiscount": 1,
+            "ableReturn": 1,
+            "isLowConsume": 1,
+            "storeDay": 100,
+            "storeMinCount": 0.1,
+            "isWholeStore": 2,
+            "delayDays": "100",
+            "maxDelayCount": 10,
+            "status": 1,
+            "propertyList": null
+        }
+    ]
+}

@@ -1,0 +1,30 @@
+{
+    "code": 200,
+    "message": "success",
+    "data": [
+        {
+            "id": 2,
+            "cid": "3300001",
+            "propertyName": "甜度",
+            "parentId": -1
+        },
+        {
+            "id": 3,
+            "cid": "3300001",
+            "propertyName": "辣度",
+            "parentId": -1
+        },
+        {
+            "id": 13,
+            "cid": "3300001",
+            "propertyName": "温度",
+            "parentId": -1
+        },
+        {
+            "id": 18,
+            "cid": "3300001",
+            "propertyName": "份量",
+            "parentId": -1
+        }
+    ]
+}
