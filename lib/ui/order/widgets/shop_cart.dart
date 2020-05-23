@@ -9,28 +9,17 @@ import 'package:order/util/color_utils.dart';
 import 'package:order/widgets/label_text.dart';
 import 'package:order/widgets/load_image.dart';
 import 'package:provider/provider.dart';
+import '../../../common/common.dart';
+import '../../../util/navigator_utils.dart';
 
 ///底部购物车组件
 class ShopCart extends StatefulWidget {
-
   @override
   ShopCartState createState() => ShopCartState();
 }
 
-class ShopCartState extends State<ShopCart>
-    with WidgetsBindingObserver {
-  String _uid;
-  String _openHouseId;
-
+class ShopCartState extends State<ShopCart> with WidgetsBindingObserver {
   GlobalKey _shopCarImageKey = GlobalKey();
-
-/*  void takeOrderSuccess() {
-    OrderProvider provider = Provider.of<OrderProvider>(context, listen: false);
-    provider.removeAllCartGoods();
-    if (Constant.isShowShopList) {
-      provider.clickShopCarButton();
-    }
-  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -72,15 +61,19 @@ class ShopCartState extends State<ShopCart>
                                   showToast('请先选择商品加入购物车');
                                   return;
                                 }
-//                                presenter.takeOrder(orderCard);
+                                provider.removeAllCartGoods();
+                                if (Constant.isShowShopList) {
+                                  provider.clickShopCarButton();
+                                }
+                                NavigatorUtils.goBack(context);
                               },
                               child: Container(
                                 width: 94.5,
                                 height: double.infinity,
                                 color: Colors.red,
                                 alignment: Alignment.center,
-                                child: Text( '下单',
-                                    style: TextStyles.textWhite14),
+                                child:
+                                    Text('下单', style: TextStyles.textWhite14),
                               ),
                             ),
                           )

@@ -8,7 +8,6 @@ import 'package:order/entity/base_entity.dart';
 import 'package:order/entity/property.dart';
 import 'package:order/entity/sort.dart';
 import 'package:order/res/resources.dart';
-import 'file:///D:/GitHub-Flutter/flutter_order/lib/util/navigator_utils.dart';
 import 'package:order/ui/order/pages/sort_page.dart';
 import 'package:order/ui/order/pages/sort_right_page.dart';
 import 'package:order/ui/order/provider/ball_anim_provider.dart';
@@ -18,6 +17,8 @@ import 'package:order/ui/order/widgets/shop_cart_list.dart';
 import 'package:order/ui/order/widgets/throw_ball_anim.dart';
 import 'package:order/widgets/search_bar.dart';
 import 'package:provider/provider.dart';
+
+import '../../../util/navigator_utils.dart';
 
 class OrderPage extends StatefulWidget {
   @override
@@ -111,6 +112,7 @@ class _OrderPageState extends State<OrderPage> {
           children: <Widget>[
             Navigator(
               key: navigatorKey,
+              observers: [HeroController()], //自定Navigator使用不了Hero的解决方案 https://zhuanlan.zhihu.com/p/52228267
               onGenerateRoute: (settings) {
                 if (settings.name == '/') {
                   return PageRouteBuilder(
@@ -148,7 +150,6 @@ class _OrderPageState extends State<OrderPage> {
       resizeToAvoidBottomInset: false,
       appBar: SearchBar(
           hintText: '请输入关键字',
-          actionName: '已下单',
           isSearch: false,
           onBack: () => Navigator.maybePop(context)),
       body: Column(
