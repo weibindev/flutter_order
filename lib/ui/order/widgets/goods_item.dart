@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:order/common/http_api.dart';
 import 'package:order/entity/cart_goods_bean.dart';
 import 'package:order/res/resources.dart';
 import 'package:order/ui/order/pages/goods_detail_page.dart';
@@ -30,7 +29,7 @@ class _GoodsItemState extends State<GoodsItem> {
               child: Hero(
                 tag: widget.data,
                 child: LoadImage(
-                  '${HttpApi.oss}${widget.data.img}',
+                  '${widget.data.img}',
                   width: 81.0,
                   height: 81.0,
                   fit: BoxFit.fitHeight,

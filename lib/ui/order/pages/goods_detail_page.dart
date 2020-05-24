@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:order/ui/order/widgets/goods_options.dart';
 import 'package:order/widgets/preferred_hero_img_bar.dart';
-
-import '../../../common/http_api.dart';
 import '../../../entity/cart_goods_bean.dart';
 import '../../../res/resources.dart';
 import '../../../util/utils.dart';
@@ -21,7 +19,7 @@ class _GoodsDetailsPageState extends State<GoodsDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredHeroImgBar(
-          tag: widget.data, imageUrl: '${HttpApi.oss}${widget.data.img}'),
+          tag: widget.data, imageUrl: '${widget.data.img}'),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(

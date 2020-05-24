@@ -65,7 +65,7 @@ class ShopCartState extends State<ShopCart> with WidgetsBindingObserver {
                                 if (Constant.isShowShopList) {
                                   provider.clickShopCarButton();
                                 }
-                                NavigatorUtils.goBack(context);
+                                NavigatorUtils.goBackWithParams(context, 0);
                               },
                               child: Container(
                                 width: 94.5,

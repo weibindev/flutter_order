@@ -103,7 +103,8 @@ class _OrderPageState extends State<OrderPage> {
         onWillPop: () {
           navigatorKey.currentState.maybePop().then((value) {
             if (!value) {
-              NavigatorUtils.goBack(context);
+              NavigatorUtils.goBackWithParams(
+                  context, provider.cartGoodsList.length);
             }
           });
           return Future.value(false);
@@ -112,7 +113,8 @@ class _OrderPageState extends State<OrderPage> {
           children: <Widget>[
             Navigator(
               key: navigatorKey,
-              observers: [HeroController()], //自定Navigator使用不了Hero的解决方案 https://zhuanlan.zhihu.com/p/52228267
+              observers: [HeroController()],
+              //自定Navigator使用不了Hero的解决方案 https://zhuanlan.zhihu.com/p/52228267
               onGenerateRoute: (settings) {
                 if (settings.name == '/') {
                   return PageRouteBuilder(

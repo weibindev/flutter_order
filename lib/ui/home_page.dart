@@ -1,4 +1,6 @@
+import 'package:flustars/flustars.dart';
 import 'package:flutter/material.dart';
+import 'package:order/common/common.dart';
 import 'package:order/res/gaps.dart';
 import 'package:order/res/resources.dart';
 import 'package:order/ui/order/pages/order_page.dart';
@@ -6,7 +8,24 @@ import 'package:order/widgets/label_text.dart';
 import 'package:order/widgets/load_image.dart';
 import 'package:order/widgets/tool_bar.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var _goodsItem = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    List<dynamic> goodsList = SpUtil.getObjectList(Constant.cartGoods);
+    if (goodsList != null && goodsList.isNotEmpty) {
+      _goodsItem = goodsList.length;
+    }
+//    _goodsItem = SpUtil.getObjectList(Constant.cartGoods).length;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,11 +37,11 @@ class HomePage extends StatelessWidget {
           Card(
             margin: const EdgeInsets.all(15),
             shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             child: InkWell(
               child: Padding(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -37,11 +56,14 @@ class HomePage extends StatelessWidget {
                         Positioned(
                           right: 0,
                           bottom: 0,
-                          child: LabelText(
-                            shape: BoxShape.circle,
-                            backgroundColor: Colors.red,
-                            text: '10',
-                            padding: const EdgeInsets.all(5),
+                          child: Visibility(
+                            visible: _goodsItem != 0,
+                            child: LabelText(
+                              shape: BoxShape.circle,
+                              backgroundColor: Colors.red,
+                              text: '$_goodsItem',
+                              padding: const EdgeInsets.all(5),
+                            ),
                           ),
                         )
                       ],
@@ -60,7 +82,14 @@ class HomePage extends StatelessWidget {
               ),
               onTap: () {
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => OrderPage()));
+                    .push(MaterialPageRoute(builder: (context) => OrderPage()))
+                    .then((value) {
+                  setState(() {
+                    if (value != null) {
+                      _goodsItem = value;
+                    }
+                  });
+                });
               },
             ),
           )
