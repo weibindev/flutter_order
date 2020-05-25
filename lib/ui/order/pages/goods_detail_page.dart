@@ -5,6 +5,7 @@ import '../../../entity/cart_goods_bean.dart';
 import '../../../res/resources.dart';
 import '../../../util/utils.dart';
 
+///商品详情页
 class GoodsDetailsPage extends StatefulWidget {
   final CartGoodsBean data;
 
@@ -18,6 +19,7 @@ class _GoodsDetailsPageState extends State<GoodsDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      ///封装的appBar
       appBar: PreferredHeroImgBar(
           tag: widget.data, imageUrl: '${widget.data.img}'),
       body: Padding(
@@ -61,6 +63,7 @@ class _GoodsDetailsPageState extends State<GoodsDetailsPage> {
                   ]),
                 ),
                 Spacer(),
+                //商品的加减操作
                 GoodsOptions(data: widget.data)
               ],
             ),

@@ -28,14 +28,16 @@ class OrderPage extends StatefulWidget {
 class _OrderPageState extends State<OrderPage> {
   PageController _pageController = PageController();
 
+  ///管理点单功能Navigator的key
   GlobalKey<NavigatorState> navigatorKey = GlobalKey();
 
+  ///点单功能的provider实现了商品的增减，缓存，购物车列表回调等
   OrderProvider provider = OrderProvider();
 
   bool _isShow = false;
 
+  ///购物车不为空的情况下，点击购物车图标会触发的回调
   Future<void> showShopCarListCallback() async {
-    FocusScope.of(context).unfocus();
     _isShow = !_isShow;
     if (_isShow) {
       // 显示
@@ -51,6 +53,7 @@ class _OrderPageState extends State<OrderPage> {
   @override
   void initState() {
     super.initState();
+    //初始化栏目分类数据以及缓存商品属性
     getSortList();
   }
 
@@ -89,6 +92,7 @@ class _OrderPageState extends State<OrderPage> {
 
   @override
   Widget build(BuildContext context) {
+    //多Provider的使用
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) {
@@ -101,6 +105,7 @@ class _OrderPageState extends State<OrderPage> {
       ],
       child: WillPopScope(
         onWillPop: () {
+          //监听系统返回键，先对自定义Navigator里的路由做出栈处理，最后关闭OrderPage
           navigatorKey.currentState.maybePop().then((value) {
             if (!value) {
               NavigatorUtils.goBackWithParams(
@@ -113,8 +118,8 @@ class _OrderPageState extends State<OrderPage> {
           children: <Widget>[
             Navigator(
               key: navigatorKey,
+              //自定Navigator使用不了Hero的解决方案
               observers: [HeroController()],
-              //自定Navigator使用不了Hero的解决方案 https://zhuanlan.zhihu.com/p/52228267
               onGenerateRoute: (settings) {
                 if (settings.name == '/') {
                   return PageRouteBuilder(
@@ -137,6 +142,7 @@ class _OrderPageState extends State<OrderPage> {
               left: 0,
               child: ShopCart(),
             ),
+            //添加商品进购物车的小球动画
             ThrowBallAnim(),
           ],
         ),

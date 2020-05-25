@@ -62,6 +62,7 @@ class _SubListPageState extends State<SubListPage>
                 _tabController.animateTo(index);
               },
               itemBuilder: (_, index) {
+                //商品列表
                 return SubItemPage(
                   key: Key('subItem${widget.data[index].id}'),
                   id: widget.data[index].id

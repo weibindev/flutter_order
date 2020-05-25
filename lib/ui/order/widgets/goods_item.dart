@@ -6,6 +6,7 @@ import 'package:order/ui/order/widgets/goods_options.dart';
 import 'package:order/util/utils.dart';
 import 'package:order/widgets/load_image.dart';
 
+/// 商品Item组件
 class GoodsItem extends StatefulWidget {
   final CartGoodsBean data;
 
@@ -77,6 +78,7 @@ class _GoodsItemState extends State<GoodsItem> {
                         ]),
                       ),
                       Spacer(),
+                      //商品的加减操作
                       GoodsOptions(data: widget.data)
                     ],
                   )

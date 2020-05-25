@@ -25,14 +25,17 @@ class _SortRightPageState extends State<SortRightPage>
     super.build(context);
     if (widget.data == null || widget.data.isEmpty) {
       if (widget.parentId == -1) {
+        //套餐Page
         return DiscountPage();
       } else {
+        //商品列表
         return SubItemPage(
           key: Key('subItem${widget.parentId}'),
           id: widget.parentId
         );
       }
     } else {
+      //二级分类
       return SubListPage(
         key: Key('subList${widget.parentId}'),
         data: widget.data
