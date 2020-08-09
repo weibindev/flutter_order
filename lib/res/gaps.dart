@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
+import '../util/theme_utils.dart';
+import 'colors.dart';
 import 'colors.dart';
 import 'dimens.dart';
 
@@ -46,18 +48,28 @@ class Gaps {
 
   static const Widget empty = const SizedBox.shrink();
 
-  static Widget vLine10 = const SizedBox(
-    height: 10.0,
-    width: double.infinity,
-    child:
-        const DecoratedBox(decoration: BoxDecoration(color: Colours.bg_gray_)),
-  );
+  static Widget vLine10(BuildContext context) {
+    return SizedBox(
+      height: 10.0,
+      width: double.infinity,
+      child: DecoratedBox(
+          decoration: BoxDecoration(
+              color: ThemeUtils.isDark(context)
+                  ? Colours.dark_material_bg
+                  : Colours.bg_gray_)),
+    );
+  }
 
   //慎用-需要父控件占满高度
-  static Widget hLine10 = const SizedBox(
-    height: double.infinity,
-    width: 10.0,
-    child:
-        const DecoratedBox(decoration: BoxDecoration(color: Colours.bg_gray_)),
-  );
+  static Widget hLine10(BuildContext context) {
+    return SizedBox(
+      height: double.infinity,
+      width: 10.0,
+      child: DecoratedBox(
+          decoration: BoxDecoration(
+              color: ThemeUtils.isDark(context)
+                  ? Colours.dark_material_bg
+                  : Colours.bg_gray_)),
+    );
+  }
 }

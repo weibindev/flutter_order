@@ -13,8 +13,7 @@ import 'package:provider/provider.dart';
 class SubItemPage extends StatefulWidget {
   final int id;
 
-  SubItemPage({Key key, this.id})
-      : super(key: key);
+  SubItemPage({Key key, this.id}) : super(key: key);
 
   @override
   _SubItemPageState createState() => _SubItemPageState();
@@ -34,8 +33,7 @@ class _SubItemPageState extends State<SubItemPage>
   void getGoodsList(int typeId) {
     try {
       rootBundle.loadString('assets/data/goods_$typeId.json').then((value) {
-        BaseEntity<GoodsBean> result =
-        BaseEntity.fromJson(jsonDecode(value));
+        BaseEntity<GoodsBean> result = BaseEntity.fromJson(jsonDecode(value));
 
         if (result != null) {
           if (result.listData.isEmpty || result.listData == null) {
@@ -64,20 +62,21 @@ class _SubItemPageState extends State<SubItemPage>
               ? StateLayout(type: provider.stateType)
               : ListView.builder(
                   shrinkWrap: true,
-                  padding: const EdgeInsets.only(bottom: 49),
+                  padding: EdgeInsets.only(
+                      bottom: 59 + MediaQuery.of(context).padding.bottom),
                   physics: BouncingScrollPhysics(),
                   itemCount: provider.list.length,
                   itemBuilder: (context, index) {
                     GoodsBean goodsBean = provider.list[index];
-                      CartGoodsBean cartGoodsBean = CartGoodsBean(
-                          id: goodsBean.id,
-                          img: goodsBean.img,
-                          name: goodsBean.goodsName,
-                          description: goodsBean.description,
-                          price: goodsBean.price,
-                          type: 1,
-                          propertyList: goodsBean.propertyList);
-                      return GoodsItem(data: cartGoodsBean);
+                    CartGoodsBean cartGoodsBean = CartGoodsBean(
+                        id: goodsBean.id,
+                        img: goodsBean.img,
+                        name: goodsBean.goodsName,
+                        description: goodsBean.description,
+                        price: goodsBean.price,
+                        type: 1,
+                        propertyList: goodsBean.propertyList);
+                    return GoodsItem(data: cartGoodsBean);
                   });
         },
       ),

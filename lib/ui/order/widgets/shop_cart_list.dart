@@ -3,12 +3,14 @@ import 'package:order/common/common.dart';
 import 'package:order/entity/cart_goods_bean.dart';
 import 'package:order/entity/property.dart';
 import 'package:order/res/resources.dart';
-import 'file:///D:/GitHub-Flutter/flutter_order/lib/util/navigator_utils.dart';
 import 'package:order/ui/order/provider/order_provider.dart';
 import 'package:order/util/color_utils.dart';
 import 'package:order/util/utils.dart';
 import 'package:order/widgets/load_image.dart';
 import 'package:provider/provider.dart';
+
+import '../../../util/navigator_utils.dart';
+import '../../../util/theme_utils.dart';
 
 ///点击购物车图标出现的列表组件
 class ShopCartList extends StatefulWidget {
@@ -57,7 +59,7 @@ class _ShopCartListState extends State<ShopCartList> {
                 topLeft: Radius.circular(12.0),
                 topRight: Radius.circular(12.0),
               ),
-              color: Colors.white,
+              color: ThemeUtils.getBackgroundColor(context),
             ),
             child: _buildList(context),
           ),

@@ -153,7 +153,6 @@ class _OrderPageState extends State<OrderPage> {
   //构建内容层
   Widget _buildContent(BuildContext childContext) {
     return Scaffold(
-      backgroundColor: Colors.white,
       //弹出键盘不拉起底部布局
       resizeToAvoidBottomInset: false,
       appBar: SearchBar(
@@ -163,7 +162,7 @@ class _OrderPageState extends State<OrderPage> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Gaps.vLine10,
+          Gaps.vLine10(context),
           //占满剩余高度
           Expanded(
             child: Row(
@@ -175,7 +174,8 @@ class _OrderPageState extends State<OrderPage> {
                   child: SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
                     child: Padding(
-                      padding: const EdgeInsets.only(bottom: 70),
+                      padding: EdgeInsets.only(
+                          bottom: 80 + MediaQuery.of(context).padding.bottom),
                       child:
                           Consumer<OrderProvider>(builder: (_, provider, __) {
                         return SortPage(
@@ -190,7 +190,7 @@ class _OrderPageState extends State<OrderPage> {
                     ),
                   ),
                 ),
-                Gaps.hLine10,
+                Gaps.hLine10(context),
                 Expanded(
                   flex: 306,
                   child: Consumer<OrderProvider>(

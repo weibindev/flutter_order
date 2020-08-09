@@ -4,11 +4,16 @@ import 'package:order/common/common.dart';
 import 'package:order/entity/cart_goods_bean.dart';
 import 'package:order/entity/property.dart';
 import 'package:order/res/resources.dart';
-import 'file:///D:/GitHub-Flutter/flutter_order/lib/util/navigator_utils.dart';
 import 'package:order/ui/order/provider/order_provider.dart';
 import 'package:order/util/color_utils.dart';
 import 'package:order/widgets/load_image.dart';
 import 'package:provider/provider.dart';
+
+import '../../../res/colors.dart';
+import '../../../res/dimens.dart';
+import '../../../util/navigator_utils.dart';
+import '../../../util/theme_utils.dart';
+import '../../../util/theme_utils.dart';
 
 class GoodsTypeDialog extends StatefulWidget {
   final CartGoodsBean data;
@@ -21,7 +26,6 @@ class GoodsTypeDialog extends StatefulWidget {
 }
 
 class _GoodsTypeDialogState extends State<GoodsTypeDialog> {
-
   ///商品属性map
   Map<String, List<Property>> propertyMap = Map();
 
@@ -70,7 +74,7 @@ class _GoodsTypeDialogState extends State<GoodsTypeDialog> {
                             child: Text(widget.data.name,
                                 style: TextStyle(
                                     fontSize: Dimens.font_sp16,
-                                    color: Colours.black_text)),
+                                    color: ThemeUtils.getTextColor(context))),
                           ),
                           Positioned(
                             top: 0.0,
@@ -81,11 +85,11 @@ class _GoodsTypeDialogState extends State<GoodsTypeDialog> {
                                   onTap: () => NavigatorUtils.goBack(context),
                                   child: Container(
                                     padding: const EdgeInsets.only(
-                                        top: 8.0, right: 8.0),
-                                    child: const LoadAssetImage(
-                                      'ic_close',
-                                      width: 28.0,
-                                      height: 28.0,
+                                        top: 10.0, right: 10.0),
+                                    child: Icon(
+                                      Icons.close,
+                                      size: 24,
+                                      color: ThemeUtils.getTextColor(context),
                                       key: const Key('dialog_close'),
                                     ),
                                   )),
@@ -104,7 +108,7 @@ class _GoodsTypeDialogState extends State<GoodsTypeDialog> {
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(7.5),
                               bottomRight: Radius.circular(7.5)),
-                          color: Colours.dark_button_text,
+                          color: ThemeUtils.isDark(context) ? Colours.dark_line :Colours.dark_button_text,
                         ),
                         padding: const EdgeInsets.fromLTRB(19.5, 7.5, 8, 8),
                         child: _buildOptions())
@@ -154,7 +158,9 @@ class _GoodsTypeDialogState extends State<GoodsTypeDialog> {
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: Text('${propertyMap.keys.toList()[i]}',
-                style: TextStyles.textBlack12),
+                style: TextStyle(
+                    color: ThemeUtils.getTextColor(context),
+                    fontSize: Dimens.font_sp12)),
           ),
           GridView.builder(
               shrinkWrap: true,
@@ -185,7 +191,7 @@ class _GoodsTypeDialogState extends State<GoodsTypeDialog> {
                         style: TextStyle(
                             color: _index == index
                                 ? ColorUtils.hexToColor('#FF932D')
-                                : Colours.black_text,
+                                : ThemeUtils.getTextColor(context),
                             fontSize: Dimens.font_sp12)),
                   ),
                   onTap: () {

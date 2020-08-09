@@ -11,6 +11,7 @@ import 'package:order/widgets/load_image.dart';
 import 'package:provider/provider.dart';
 import '../../../common/common.dart';
 import '../../../util/navigator_utils.dart';
+import '../../../util/theme_utils.dart';
 
 ///底部购物车组件
 class ShopCart extends StatefulWidget {
@@ -25,98 +26,110 @@ class ShopCartState extends State<ShopCart> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
-      child: SizedBox(
-        height: 70,
-        child: Consumer<OrderProvider>(builder: (context, provider, child) {
-          return Stack(
-            children: <Widget>[
-              Positioned(
-                bottom: 0.0,
-                left: 0.0,
-                right: 0.0,
-                child: ClipRect(
-                  //如果不设置ClipRect的话，效果将扩散至全屏
-                  child: BackdropFilter(
-                    filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                    child: Container(
-                      height: 49.0,
-                      width: double.infinity,
-                      color: ColorUtils.hexToColor('#2D3339').withOpacity(0.65),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          const SizedBox(width: 53.0),
-                          Expanded(
-                            key: Key('cart_amount'),
-                            child: Text(provider.getCartGoodsPrice(),
-                                style: TextStyles.textWhite14),
-                          ),
-                          Visibility(
-                            key: Key('cart_options'),
-                            visible: true,
-                            child: InkWell(
-                              onTap: () {
-                                if (provider.cartGoodsList.isEmpty) {
-                                  showToast('请先选择商品加入购物车');
-                                  return;
-                                }
-                                provider.removeAllCartGoods();
-                                if (Constant.isShowShopList) {
-                                  provider.clickShopCarButton();
-                                }
-                                NavigatorUtils.goBackWithParams(context, 0);
-                              },
-                              child: Container(
-                                width: 94.5,
-                                height: double.infinity,
-                                color: Colors.red,
-                                alignment: Alignment.center,
-                                child:
-                                    Text('下单', style: TextStyles.textWhite14),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: SizedBox(
+          height: 80 + MediaQuery.of(context).padding.bottom,
+          child: Consumer<OrderProvider>(builder: (context, provider, child) {
+            return Stack(
+              children: <Widget>[
+                Positioned(
+                  bottom: 0.0,
+                  left: 0.0,
+                  right: 0.0,
+                  child: Column(
+                    children: <Widget>[
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(24),
+                        child: ClipRect(
+                          //如果不设置ClipRect的话，效果将扩散至全屏
+                          child: BackdropFilter(
+                            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                            child: Container(
+                              height: 49.0,
+                              width: double.infinity,
+                              color: ColorUtils.hexToColor('#2D3339')
+                                  .withOpacity(0.65),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: <Widget>[
+                                  const SizedBox(width: 53.0),
+                                  Expanded(
+                                    key: Key('cart_amount'),
+                                    child: Text(provider.getCartGoodsPrice(),
+                                        style: TextStyles.textWhite14),
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      if (provider.cartGoodsList.isEmpty) {
+                                        showToast('请先选择商品加入购物车');
+                                        return;
+                                      }
+                                      provider.removeAllCartGoods();
+                                      if (Constant.isShowShopList) {
+                                        provider.clickShopCarButton();
+                                      }
+                                      NavigatorUtils.goBackWithParams(
+                                          context, 0);
+                                    },
+                                    child: Container(
+                                      width: 94.5,
+                                      height: double.infinity,
+                                      color: Colors.red,
+                                      alignment: Alignment.center,
+                                      child: Text('下单',
+                                          style: TextStyles.textWhite14),
+                                    ),
+                                  )
+                                ],
                               ),
                             ),
-                          )
-                        ],
+                          ),
+                        ),
                       ),
+                      Container(
+                        height: 10 + MediaQuery.of(context).padding.bottom,
+                        color: ThemeUtils.getBackgroundColor(context),
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: 0.0,
+                  left: 6.5,
+                  child: GestureDetector(
+                    key: _shopCarImageKey,
+                    child: LoadAssetImage(
+                      provider.cartGoodsList.isNotEmpty
+                          ? 'order_cart'
+                          : 'order_cart_empty',
+                      width: 45.0,
+                      height: 45.0,
+                    ),
+                    onTap: () => provider.cartGoodsList.isNotEmpty
+                        ? provider.clickShopCarButton()
+                        : null,
+                  ),
+                ),
+                Positioned(
+                  top: 0.0,
+                  left: 38,
+                  child: Visibility(
+                    visible: provider.cartGoodsList.isNotEmpty,
+                    child: LabelText(
+                      key: Key('cart_count'),
+                      shape: BoxShape.circle,
+                      backgroundColor: Colors.red,
+                      text: '${provider.cartGoodsList.length}',
+                      padding: const EdgeInsets.fromLTRB(6, 2, 6, 2),
                     ),
                   ),
-                ),
-              ),
-              Positioned(
-                top: 0.0,
-                left: 6.5,
-                child: GestureDetector(
-                  key: _shopCarImageKey,
-                  child: LoadAssetImage(
-                    provider.cartGoodsList.isNotEmpty
-                        ? 'order_cart'
-                        : 'order_cart_empty',
-                    width: 45.0,
-                    height: 45.0,
-                  ),
-                  onTap: () => provider.cartGoodsList.isNotEmpty
-                      ? provider.clickShopCarButton()
-                      : null,
-                ),
-              ),
-              Positioned(
-                top: 0.0,
-                left: 38,
-                child: Visibility(
-                  visible: provider.cartGoodsList.isNotEmpty,
-                  child: LabelText(
-                    key: Key('cart_count'),
-                    shape: BoxShape.circle,
-                    backgroundColor: Colors.red,
-                    text: '${provider.cartGoodsList.length}',
-                    padding: const EdgeInsets.fromLTRB(6, 2, 6, 2),
-                  ),
-                ),
-              )
-            ],
-          );
-        }),
+                )
+              ],
+            );
+          }),
+        ),
       ),
     );
   }

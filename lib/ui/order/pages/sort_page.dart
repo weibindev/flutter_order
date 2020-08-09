@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:order/res/resources.dart';
 import 'package:order/util/color_utils.dart';
 
+import '../../../res/colors.dart';
+import '../../../util/theme_utils.dart';
+import '../../../util/theme_utils.dart';
+import '../../../util/theme_utils.dart';
+
 class SortPage extends StatefulWidget {
   final List<String> items;
   final double itemHeight;
@@ -40,7 +45,7 @@ class SortPageState extends State<SortPage>
                     currentItemIndex == i ? Dimens.font_sp16 : Dimens.font_sp14,
                 color: currentItemIndex == i
                     ? ColorUtils.hexToColor('#2567FE')
-                    : ColorUtils.hexToColor('#333333')),
+                    : null),
           ),
         ),
       );
@@ -53,7 +58,10 @@ class SortPageState extends State<SortPage>
           top: animation.value,
           child: Stack(
             children: <Widget>[
-              Container(color: Colours.bg_gray_),
+              Container(
+                  color: ThemeUtils.isDark(context)
+                      ? Colours.dark_material_bg
+                      : Colours.bg_gray_),
               Positioned(
                 top: 12.5,
                 child: Container(

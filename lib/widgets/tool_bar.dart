@@ -4,6 +4,8 @@ import 'package:order/res/resources.dart';
 import 'package:order/util/color_utils.dart';
 import 'package:order/util/theme_utils.dart';
 
+import '../util/theme_utils.dart';
+
 ///自定义AppBar
 class Toolbar extends StatelessWidget implements PreferredSizeWidget {
   const Toolbar(
@@ -41,7 +43,7 @@ class Toolbar extends StatelessWidget implements PreferredSizeWidget {
     }
 
     if (titleColor == null) {
-      _titleColor = ColorUtils.hexToColor('#333333');
+      _titleColor = ThemeUtils.getTitleColor(context);
     } else {
       _titleColor = titleColor;
     }

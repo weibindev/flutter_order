@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:order/res/resources.dart';
 
-class ThemeUtils {
+import '../res/colors.dart';
+import '../res/colors.dart';
 
+class ThemeUtils {
   static bool isDark(BuildContext context) {
     return Theme.of(context).brightness == Brightness.dark;
   }
@@ -14,6 +16,14 @@ class ThemeUtils {
 
   static Color getIconColor(BuildContext context) {
     return isDark(context) ? Colours.dark_text : null;
+  }
+
+  static Color getTitleColor(BuildContext context) {
+    return isDark(context) ? Colors.white : Colours.text;
+  }
+
+  static Color getTextColor(BuildContext context){
+    return isDark(context) ? Colors.white :Colours.black_text;
   }
 
   static Color getBackgroundColor(BuildContext context) {
